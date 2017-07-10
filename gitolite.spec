@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.7
-Release  : 1
+Release  : 2
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.7.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.7.tar.gz
 Summary  : No detailed summary available
@@ -45,16 +45,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1499524561
+export SOURCE_DATE_EPOCH=1499698965
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1499524561
+export SOURCE_DATE_EPOCH=1499698965
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
+%exclude /var/lib/gitolite/.ssh/authorized_keys
 /usr/lib/perl5/5.24.0/Gitolite/Cache.pm
 /usr/lib/perl5/5.24.0/Gitolite/Common.pm
 /usr/lib/perl5/5.24.0/Gitolite/Conf.pm
@@ -81,7 +82,6 @@ rm -rf %{buildroot}
 /usr/lib/perl5/5.24.0/Gitolite/Triggers/Shell.pm
 /usr/lib/perl5/5.24.0/Gitolite/Triggers/TProxy.pm
 /usr/lib/perl5/5.24.0/Gitolite/Triggers/Writable.pm
-/var/lib/gitolite/.ssh/authorized_keys
 
 %files bin
 %defattr(-,root,root,-)
