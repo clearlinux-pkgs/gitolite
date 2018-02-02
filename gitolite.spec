@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.7
-Release  : 6
+Release  : 7
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.7.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.7.tar.gz
 Summary  : No detailed summary available
