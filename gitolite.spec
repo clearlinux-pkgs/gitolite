@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.10
-Release  : 11
+Release  : 12
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.10.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.10.tar.gz
 Summary  : No detailed summary available
@@ -55,11 +55,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538599024
+export SOURCE_DATE_EPOCH=1542931662
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1538599024
+export SOURCE_DATE_EPOCH=1542931662
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp COPYING %{buildroot}/usr/share/package-licenses/gitolite/COPYING
