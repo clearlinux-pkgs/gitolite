@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.10
-Release  : 14
+Release  : 15
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.10.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.10.tar.gz
 Summary  : No detailed summary available
