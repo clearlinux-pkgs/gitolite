@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.11
-Release  : 20
+Release  : 21
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Summary  : An access control layer on top of git
@@ -55,12 +55,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555800305
+export SOURCE_DATE_EPOCH=1555856063
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1555800305
+export SOURCE_DATE_EPOCH=1555856063
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp COPYING %{buildroot}/usr/share/package-licenses/gitolite/COPYING
