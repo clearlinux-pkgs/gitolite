@@ -11,10 +11,10 @@
 +	install -d $(DESTDIR)/var/lib/gitolite
 +	install -d $(DESTDIR)/var/lib/gitolite/.ssh
 +	install -d $(DESTDIR)/usr/bin
-+	install -d $(DESTDIR)/usr/lib/perl5/5.28.1
++	install -d $(DESTDIR)/usr/lib/perl5/5.28.2
 +	install -d $(DESTDIR)/usr/share/gitolite
 +	# Code
-+	cp -pr src/lib/Gitolite $(DESTDIR)/usr/lib/perl5/5.28.1
++	cp -pr src/lib/Gitolite $(DESTDIR)/usr/lib/perl5/5.28.2
 +	echo "3.67" >src/VERSION
 +	cp -a src/* $(DESTDIR)/usr/share/gitolite
 +	ln -s /usr/share/gitolite/gitolite $(DESTDIR)/usr/bin/gitolite
