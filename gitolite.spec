@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.11
-Release  : 22
+Release  : 24
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Summary  : No detailed summary available
@@ -13,7 +13,7 @@ License  : GPL-2.0
 Requires: gitolite-bin = %{version}-%{release}
 Requires: gitolite-data = %{version}-%{release}
 Requires: gitolite-license = %{version}-%{release}
-Patch1: build.patch
+Patch1: 0001-Add-makefile.patch
 
 %description
 ============================================
@@ -55,47 +55,50 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1561503454
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1561756291
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1561503454
+export SOURCE_DATE_EPOCH=1561756291
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp COPYING %{buildroot}/usr/share/package-licenses/gitolite/COPYING
-%make_install
+make install DESTDIR=%{buildroot} VER=%{version}
 
 %files
 %defattr(-,root,root,-)
-%exclude /var/lib/gitolite/.ssh/authorized_keys
-/usr/lib/perl5/5.28.2/Gitolite/Cache.pm
-/usr/lib/perl5/5.28.2/Gitolite/Common.pm
-/usr/lib/perl5/5.28.2/Gitolite/Conf.pm
-/usr/lib/perl5/5.28.2/Gitolite/Conf/Explode.pm
-/usr/lib/perl5/5.28.2/Gitolite/Conf/Load.pm
-/usr/lib/perl5/5.28.2/Gitolite/Conf/Store.pm
-/usr/lib/perl5/5.28.2/Gitolite/Conf/Sugar.pm
-/usr/lib/perl5/5.28.2/Gitolite/Easy.pm
-/usr/lib/perl5/5.28.2/Gitolite/Hooks/PostUpdate.pm
-/usr/lib/perl5/5.28.2/Gitolite/Hooks/Update.pm
-/usr/lib/perl5/5.28.2/Gitolite/Rc.pm
-/usr/lib/perl5/5.28.2/Gitolite/Setup.pm
-/usr/lib/perl5/5.28.2/Gitolite/Test.pm
-/usr/lib/perl5/5.28.2/Gitolite/Test/Tsh.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Alias.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/AutoCreate.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/CpuTime.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Kindergarten.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Mirroring.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Motd.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/RefexExpr.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/RepoUmask.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Shell.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/TProxy.pm
-/usr/lib/perl5/5.28.2/Gitolite/Triggers/Writable.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Cache.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Common.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Conf.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Conf/Explode.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Conf/Load.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Conf/Store.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Conf/Sugar.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Easy.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Hooks/PostUpdate.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Hooks/Update.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Rc.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Setup.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Test.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Test/Tsh.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Alias.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/AutoCreate.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/CpuTime.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Kindergarten.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Mirroring.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Motd.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/RefexExpr.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/RepoUmask.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Shell.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/TProxy.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Gitolite/Triggers/Writable.pm
 
 %files bin
 %defattr(-,root,root,-)

@@ -1,0 +1,35 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Fri, 28 Jun 2019 13:54:39 -0700
+Subject: [PATCH] Add makefile
+
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ Makefile | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..fb54170
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,18 @@
++# borrowed from Fedora %install section
++
++all:
++
++PERLVENDORDIR := $(shell perl -V::installvendorlib: | sed "s|'\(.*\)'|\1|")
++
++install:
++	# Directory structure
++	install -d $(DESTDIR)/usr/bin
++	install -d $(DESTDIR)$(PERLVENDORDIR)
++	install -d $(DESTDIR)/usr/share/gitolite
++	# Code
++	cp -pr src/lib/Gitolite $(DESTDIR)$(PERLVENDORDIR)
++	echo "$(VER)" > src/VERSION
++	cp -a src/* $(DESTDIR)/usr/share/gitolite
++	ln -s /usr/share/gitolite/gitolite $(DESTDIR)/usr/bin/gitolite
++
++.PHONY: install
