@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.11
-Release  : 24
+Release  : 25
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Summary  : No detailed summary available
@@ -13,6 +13,7 @@ License  : GPL-2.0
 Requires: gitolite-bin = %{version}-%{release}
 Requires: gitolite-data = %{version}-%{release}
 Requires: gitolite-license = %{version}-%{release}
+Requires: perl(Redis)
 Patch1: 0001-Add-makefile.patch
 
 %description
@@ -54,8 +55,8 @@ license components for the gitolite package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561756291
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566339229
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -65,7 +66,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1561756291
+export SOURCE_DATE_EPOCH=1566339229
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp COPYING %{buildroot}/usr/share/package-licenses/gitolite/COPYING
