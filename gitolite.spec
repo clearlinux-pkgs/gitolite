@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.11
-Release  : 26
+Release  : 27
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.11.tar.gz
 Summary  : No detailed summary available
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578450253
+export SOURCE_DATE_EPOCH=1584400925
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -77,7 +77,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1578450253
+export SOURCE_DATE_EPOCH=1584400925
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp %{_builddir}/gitolite-3.6.11/COPYING %{buildroot}/usr/share/package-licenses/gitolite/9171b73c58271d57144d45127d0ac8f1b766c50d
@@ -190,29 +190,29 @@ make install DESTDIR=%{buildroot} VER=%{version}
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Cache.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Common.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Conf.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Conf/Explode.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Conf/Load.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Conf/Store.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Conf/Sugar.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Easy.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Hooks/PostUpdate.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Hooks/Update.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Rc.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Setup.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Test.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Test/Tsh.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Alias.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/AutoCreate.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/CpuTime.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Kindergarten.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Mirroring.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Motd.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/RefexExpr.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/RepoUmask.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Shell.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/TProxy.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Gitolite/Triggers/Writable.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Cache.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Common.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Conf.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Conf/Explode.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Conf/Load.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Conf/Store.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Conf/Sugar.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Easy.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Hooks/PostUpdate.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Hooks/Update.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Rc.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Setup.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Test.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Test/Tsh.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Alias.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/AutoCreate.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/CpuTime.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Kindergarten.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Mirroring.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Motd.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/RefexExpr.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/RepoUmask.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Shell.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/TProxy.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Gitolite/Triggers/Writable.pm
