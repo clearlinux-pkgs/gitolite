@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.12
-Release  : 32
+Release  : 33
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.12/gitolite-3.6.12.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.12/gitolite-3.6.12.tar.gz
 Summary  : No detailed summary available
