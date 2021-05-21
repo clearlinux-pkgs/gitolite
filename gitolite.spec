@@ -4,7 +4,7 @@
 #
 Name     : gitolite
 Version  : 3.6.12
-Release  : 35
+Release  : 36
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.12/gitolite-3.6.12.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.12/gitolite-3.6.12.tar.gz
 Summary  : No detailed summary available
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1616013454
+export SOURCE_DATE_EPOCH=1621640318
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -77,7 +77,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1616013454
+export SOURCE_DATE_EPOCH=1621640318
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp %{_builddir}/gitolite-3.6.12/COPYING %{buildroot}/usr/share/package-licenses/gitolite/9171b73c58271d57144d45127d0ac8f1b766c50d
