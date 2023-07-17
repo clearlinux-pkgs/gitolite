@@ -30,6 +30,6 @@ index 0000000..fb54170
 +	cp -pr src/lib/Gitolite $(DESTDIR)$(PERLVENDORDIR)
 +	echo "$(VER)" > src/VERSION
 +	cp -a src/* $(DESTDIR)/usr/share/gitolite
-+	ln -s /usr/share/gitolite/gitolite $(DESTDIR)/usr/bin/gitolite
++#	ln -s /usr/share/gitolite/gitolite $(DESTDIR)/usr/bin/gitolite
 +
 +.PHONY: install
