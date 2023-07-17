@@ -5,12 +5,13 @@
 #
 Name     : gitolite
 Version  : 3.6.13
-Release  : 43
+Release  : 44
 URL      : https://github.com/sitaramc/gitolite/archive/v3.6.13/gitolite-3.6.13.tar.gz
 Source0  : https://github.com/sitaramc/gitolite/archive/v3.6.13/gitolite-3.6.13.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
+Requires: gitolite-bin = %{version}-%{release}
 Requires: gitolite-data = %{version}-%{release}
 Requires: gitolite-license = %{version}-%{release}
 Requires: gitolite-perl = %{version}-%{release}
@@ -24,6 +25,16 @@ Patch1: 0001-Add-makefile.patch
 # instructions for running the tests
 # Pre-requisites
 Install the following packages:
+
+%package bin
+Summary: bin components for the gitolite package.
+Group: Binaries
+Requires: gitolite-data = %{version}-%{release}
+Requires: gitolite-license = %{version}-%{release}
+
+%description bin
+bin components for the gitolite package.
+
 
 %package data
 Summary: data components for the gitolite package.
@@ -54,16 +65,13 @@ perl components for the gitolite package.
 %setup -q -n gitolite-3.6.13
 cd %{_builddir}/gitolite-3.6.13
 %patch -P 1 -p1
-pushd ..
-cp -a gitolite-3.6.13 buildavx2
-popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689622331
+export SOURCE_DATE_EPOCH=1689626479
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -71,28 +79,20 @@ export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-l
 export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 make  %{?_smp_mflags}
 
-pushd ../buildavx2
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
-make  %{?_smp_mflags}
-popd
 
 %install
-export SOURCE_DATE_EPOCH=1689622331
+export SOURCE_DATE_EPOCH=1689626479
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gitolite
 cp %{_builddir}/gitolite-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gitolite/9171b73c58271d57144d45127d0ac8f1b766c50d || :
-pushd ../buildavx2/
-make install DESTDIR=%{buildroot} VER=%{version}_v3
-popd
 make install DESTDIR=%{buildroot} VER=%{version}
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/gitolite
 
 %files data
 %defattr(-,root,root,-)
